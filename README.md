@@ -60,9 +60,11 @@ trading volumes, fundamental indicators, and any other relevant features that ma
    Additionally, the model parameters and features may be adjusted based on market conditions
    and performance feedback.
 
-Performance: 
-To calculate the investment performance metrics such as Sharpe ratio and profit and loss
-(P&L) for a trading strategy, we also implement code to track the cumulative returns of the strategy over time. 
+7. Measuring Performance:
+   We measure accuracy of the machine learning algo we have implemented.
+   To calculate the investment performance metrics such as Sharpe ratio and profit and loss
+   (P&L) for a trading strategy, we also implement code to track the cumulative returns
+   of the strategy over time. 
 
 Closing Note: 
 While machine learning algorithms can uncover complex patterns in data, they are not infallible,
