@@ -1,4 +1,14 @@
-#see readme file in this repo for explanation of how it works.
+"""
+This code fetches historical stock price data for Apple Inc. from Yahoo Finance, 
+calculates technical indicators such as Simple Moving Averages (SMA) and 
+Relative Strength Index (RSI), creates a target variable indicating whether 
+the future price will increase or decrease, trains a Random Forest classifier
+using these features, makes predictions, and evaluates the model's accuracy.
+"""
+
+
+
+# See readme file in this repo for explanation of how it works.
 
 # Importing necessary libraries
 import yfinance as yf
@@ -81,3 +91,13 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+"""
+Please note that this test case model is simplified and need refinement and due testing
+and development process before being suitable 
+for actual trading purposes without further exploration, risk management, 
+and validation. Additionally, it's crucial to comply with data usage 
+policies and consider transaction costs, slippage, and other practical
+aspects of trading when implementing such strategies.
+"""
