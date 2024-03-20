@@ -13,6 +13,7 @@ using these features, makes predictions, and evaluates the model's accuracy.
 import yfinance as yf
 import numpy as np
 import pandas as pd
+import datetime
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
