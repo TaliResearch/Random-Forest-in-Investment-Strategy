@@ -3,8 +3,12 @@
 The case study example presented here is a machine learning-based trading strategy using
 a Random Forest algorithm to predict stock price movements. 
 
-Case study details - Implement a Random Forest-based stock price prediction strategy using Python, historical stock price data 
+Case study details - 
+Implement a Random Forest-based stock price prediction strategy using Python, historical stock price data 
 from the Yahoo Finance API and scikit-learn library for the Random Forest model.
+Features: Simple Moving Average (50), Simple Moving Average (200), Relative Strength Indicator (RSI) 
+
+
 
 
 Among quant trading strategies, statistical arbitrage, trend following, and machine learning-based 
