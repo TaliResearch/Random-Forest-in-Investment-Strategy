@@ -14,6 +14,7 @@ import yfinance as yf
 import numpy as np
 import pandas as pd
 import datetime
+import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
@@ -56,43 +57,74 @@ def make_predictions(model, X_test):
     predictions = model.predict(X_test)
     return predictions
 
-# Function to evaluate model performance
+# Function to evaluate model performance ito accuracy
 def evaluate_model(y_test, predictions):
     accuracy = accuracy_score(y_test, predictions)
     return accuracy
 
+# Function to fetch historical stock data
+def fetch_stock_data(ticker, start_date, end_date):
+    data = yf.download(ticker, start=start_date, end=end_date)
+    return data
+
+# Function to monitor performance over time
+def monitor_performance(ticker, start_date, end_date, horizon):
+    performance = []
+    returns = []
+    while end_date <= datetime.datetime.today():
+        data = fetch_stock_data(ticker, start_date, end_date)
+        data = create_features(data)
+        data = create_target(data, horizon)
+        features = data[['SMA_50', 'SMA_200', 'RSI']]
+        target = data['Target']
+        model, X_test, y_test = train_model(features, target)
+        predictions = make_predictions(model, X_test)
+        accuracy = evaluate_model(y_test, predictions)
+        performance.append((end_date, accuracy))
+        
+        # Calculate daily return
+        daily_return = data['Future_Price'].pct_change().shift(-1) * predictions
+        returns.extend(daily_return)
+        
+        start_date = end_date
+        end_date += datetime.timedelta(days=1)  # Increment by one day for daily monitoring
+    
+    # Calculate cumulative returns
+    cumulative_returns = (1 + returns).cumprod() - 1
+    
+    # Calculate Sharpe ratio
+    sharpe_ratio = np.sqrt(252) * (np.mean(returns) / np.std(returns))
+    
+    # Calculate profit and loss (P&L)
+    total_pnl = cumulative_returns[-1] - 1
+    
+    return performance, cumulative_returns, sharpe_ratio, total_pnl
+
 # Main function
 def main():
-    # Fetch historical data
     ticker = 'AAPL'  # Example: Apple Inc. stock
-    start_date = '2020-01-01'
-    end_date = '2022-01-01'
-    data = fetch_stock_data(ticker, start_date, end_date)
+    start_date = datetime.datetime(2020, 1, 1)
+    end_date = datetime.datetime(2022, 1, 1)
+    horizon = 5  # Number of days for future price prediction
+    performance, cumulative_returns, sharpe_ratio, total_pnl = monitor_performance(ticker, start_date, end_date, horizon)
     
-    # Create features
-    data = create_features(data)
+    # Print performance metrics
+    print(f"Sharpe Ratio: {sharpe_ratio}")
+    print(f"Total Profit/Loss: {total_pnl * 100:.2f}%")
     
-    # Create target variable
-    data = create_target(data)
-    
-    # Select features and target
-    features = data[['SMA_50', 'SMA_200', 'RSI']]
-    target = data['Target']
-    
-    # Train model
-    model, X_test, y_test = train_model(features, target)
-    
-    # Make predictions
-    predictions = make_predictions(model, X_test)
-    
-    # Evaluate model performance
-    accuracy = evaluate_model(y_test, predictions)
-    print(f"Accuracy: {accuracy}")
+    # Plot cumulative returns
+    plt.plot(cumulative_returns)
+    plt.xlabel('Date')
+    plt.ylabel('Cumulative Returns')
+    plt.title('Cumulative Returns of the Trading Strategy')
+    plt.grid(True)
+    plt.show()
 
 if __name__ == "__main__":
     main()
 
 
+   
 """
 Please note that this test case model is simplified and need refinement and due testing
 and development process before being suitable 
