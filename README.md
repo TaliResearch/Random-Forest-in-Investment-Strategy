@@ -64,7 +64,28 @@ trading volumes, fundamental indicators, and any other relevant features that ma
    We measure accuracy of the machine learning algo we have implemented.
    To calculate the investment performance metrics such as Sharpe ratio and profit and loss
    (P&L) for a trading strategy, we also implement code to track the cumulative returns
-   of the strategy over time. 
+   of the strategy over time. The Sharpe ratio measures the risk-adjusted return of the strategy,
+   and the cumulative returns and P&L provide insights into the overall profitability of the strategy.
+
+The monitor_performance() function iterates over time periods from the start_date to the end_date, 
+fetching historical stock data, training the model, making predictions, and evaluating performance
+for each time period. The performance metrics (date and accuracy) are stored in a list performance, 
+which is then printed in the main() function.
+
+Please note that this code performs monitoring on a daily basis, incrementing the end date by one day 
+in each iteration. You can adjust the frequency of monitoring 
+(e.g., weekly, monthly) by changing the increment value accordingly. 
+Additionally, consider implementing more sophisticated
+performance metrics and visualization techniques to gain 
+insights into the strategy's performance over time.
+
+Please note that this test case implementation is simplified and need refinement and due testing
+and development process before being suitable 
+for actual trading purposes without further exploration, risk management, 
+and validation. Additionally, it's crucial to comply with data usage 
+policies and consider transaction costs, slippage, and other practical
+aspects of trading when implementing such strategies.
+
 
 Closing Note: 
 While machine learning algorithms can uncover complex patterns in data, they are not infallible,
