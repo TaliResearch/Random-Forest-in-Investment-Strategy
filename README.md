@@ -79,9 +79,9 @@ Additionally, consider implementing more sophisticated
 performance metrics and visualization techniques to gain 
 insights into the strategy's performance over time.
 
-Please note that this test case implementation is simplified and need refinement and due testing
-and development process before being suitable 
-for actual trading purposes without further exploration, risk management, 
+Also note that this test case implementation is simplified and needs refinement and due testing
+and development process before being suitable for actual trading purposes 
+without further exploration, risk management, 
 and validation. Additionally, it's crucial to comply with data usage 
 policies and consider transaction costs, slippage, and other practical
 aspects of trading when implementing such strategies.
