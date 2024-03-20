@@ -8,15 +8,11 @@ Implement a Random Forest-based stock price prediction strategy using Python, hi
 from the Yahoo Finance API and scikit-learn library for the Random Forest model.
 Features: Simple Moving Average (50), Simple Moving Average (200), Relative Strength Indicator (RSI) 
 
-
-
-
 Among quant trading strategies, statistical arbitrage, trend following, and machine learning-based 
 strategies are among the most commonly deployed. 
 
 These strategies often attract significant attention due to their potential 
 for generating profits and their adaptability to various market conditions. 
-
 
 When it comes to machine learning-based strategies we see that with the increasing availability of data and advances
 in machine learning techniques, more quant traders are incorporating machine learning models into their strategies. 
@@ -36,8 +32,7 @@ management strategy and process:
 
 How does it work:
 
-1. Data Collection: 
-The first step is to gather historical market data, including price movements,
+1. Data Collection: The first step is to gather historical market data, including price movements,
 trading volumes, fundamental indicators, and any other relevant features that may impact stock prices.
 
 2. Feature Engineering: Next, the data is preprocessed and transformed to create meaningful
@@ -69,7 +64,8 @@ Performance:
 To calculate the investment performance metrics such as Sharpe ratio and profit and loss
 (P&L) for a trading strategy, we also implement code to track the cumulative returns of the strategy over time. 
 
-Closing Note: While machine learning algorithms can uncover complex patterns in data, they are not infallible,
+Closing Note: 
+While machine learning algorithms can uncover complex patterns in data, they are not infallible,
 The risk of overfitting or misinterpretation of signals remains.
 Successful implementation of machine learning strategies requires careful validation, 
 rigorous testing, and ongoing monitoring to ensure effectiveness and mitigate risks.
