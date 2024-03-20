@@ -126,7 +126,7 @@ if __name__ == "__main__":
 
    
 """
-Please note that this test case model is simplified and need refinement and due testing
+Please note that this test case model is simplified and needs refinement and due testing
 and development process before being suitable 
 for actual trading purposes without further exploration, risk management, 
 and validation. Additionally, it's crucial to comply with data usage 
