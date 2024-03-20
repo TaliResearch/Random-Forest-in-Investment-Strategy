@@ -7,7 +7,7 @@ using these features, makes predictions, and evaluates the model's accuracy.
 """
 
 
-# See readme file in this repo for explanation of how it works.
+# Also see readme file in this repo for explanation of how it works.
 
 # Importing necessary libraries
 import yfinance as yf
